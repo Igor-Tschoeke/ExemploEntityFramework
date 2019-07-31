@@ -8,27 +8,26 @@ using System.Threading.Tasks;
 
 namespace Exemplo00
 {
-
-    
-    [Table("animais")]
-    public class Animal
+    public class Habilidade
     {
         [Key]
-        //data attribute
         [Column("id")]
         public int Id { get; set; }
+
+        [Column("id_animal")]
+        public int IdAnimal { get; set; }
+
+        [ForeignKey("IdAnimal")]
+        public Animal Animal { get; set; }
 
         [Column("nome")]
         public string Nome { get; set; }
 
-        [Column("extinto")]
-        public bool Extinto { get; set; }
 
-        [Column("peso")]
-        public decimal Peso { get; set; }
 
-        //[NotMapped] -> propriedade não estara no banco de dados
-        //public decimal IMC { get; set; }
+
+
+
 
     }
 }

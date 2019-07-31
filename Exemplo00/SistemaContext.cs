@@ -11,9 +11,11 @@ namespace Exemplo00
     {
         public DbSet<Animal> Animais { get; set; }
 
+        public DbSet<Habilidade> habilidades { get; set; }   
+
         public SistemaContext() : base(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Documentos\ExemploEntityFrameWork.mdf;Integrated Security=True;Connect Timeout=30")
         {
-
+            Database.SetInitializer<SistemaContext>(null);
         }
 
     }
