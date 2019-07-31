@@ -37,13 +37,13 @@ namespace Exemplo00
 
 
 
-            List<Animal> animais = contexto.Animais
-                .Where(x => x.Extinto == true && x.Nome.Contains("")).OrderBy(x => x.Nome).ToList();
+            //List<Animal> animais = contexto.Animais
+            //    .Where(x => x.Extinto == true && x.Nome.Contains("")).OrderBy(x => x.Nome).ToList();
 
-            foreach (Animal animal in animais)
-            {
-                Console.WriteLine($"{animal.Id} - {animal.Nome} - {animal.Extinto} - {animal.Peso}");
-            }
+            //foreach (Animal animal in animais)
+            //{
+            //    Console.WriteLine($"{animal.Id} - {animal.Nome} - {animal.Extinto} - {animal.Peso}");
+            //}
 
             //#region InserirRelacionado
             //Habilidade habilidade = new Habilidade();
@@ -52,14 +52,15 @@ namespace Exemplo00
 
             //contexto.habilidades.Add(habilidade);
             //contexto.SaveChanges();
+            //Console.WriteLine(habilidade.Nome);
             //#endregion InserirRelacionado
 
-            //var habilidades = contexto.habilidades.ToList();
+            var habilidades = contexto.habilidades.ToList();
 
-            //foreach(Habilidade habilidadeAux in habilidades)
-            //{
-            //    Console.WriteLine(habilidade.Nome);
-            //}
+            foreach(Habilidade habilidadeAux in habilidades)
+            {
+                Console.WriteLine(habilidadeAux.Animal.Nome + "-" + habilidadeAux.Nome);
+            }
         }
     }
 }
